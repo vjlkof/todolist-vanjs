@@ -2,7 +2,7 @@ import toDoList from "../components/todoList/toDoList";
 import addToDoItemButton from "../components/addToDoItemButton";
 
 export default function project(projectItem) {
-  const projectElement = document.createElement("div");
+  const projectElement = document.createElement("main");
   const projectSection = document.createElement("section");
   const pageTitle = document.createElement("h1");
   const projectTitle = document.createElement("h2");

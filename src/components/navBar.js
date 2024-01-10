@@ -1,5 +1,7 @@
 import homePage from "../pages/homePage";
+import projects from "../pages/projects";
 import styles from "./navBar.module.css";
+import { defaultProject, projectList } from "../data";
 
 export default function navBar() {
   const contentDiv = document.getElementById("content");
@@ -12,12 +14,12 @@ export default function navBar() {
   homeLI.textContent = "Home";
   homeLI.addEventListener("click", () => {
     contentDiv.removeChild(document.getElementById("main"));
-    contentDiv.appendChild(homePage());
+    contentDiv.appendChild(homePage(defaultProject, projectList));
   });
   projectsLI.textContent = "Projects";
   projectsLI.addEventListener("click", () => {
     contentDiv.removeChild(document.getElementById("main"));
-    contentDiv.appendChild(projects());
+    contentDiv.appendChild(projects(projectList));
   });
   ul.appendChild(homeLI);
   ul.appendChild(projectsLI);
