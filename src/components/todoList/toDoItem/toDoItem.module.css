@@ -1,0 +1,23 @@
+p {
+  margin: 0;
+}
+.toDoItem {
+  display: flex !important;
+  justify-content: flex-start;
+}
+
+.high {
+  background-color: rgb(255, 129, 129);
+}
+
+.medium {
+  background-color: rgb(240, 178, 62);
+}
+
+.low {
+  background-color: yellow;
+}
+
+.completed {
+  background-color: rgb(157, 231, 45);
+}

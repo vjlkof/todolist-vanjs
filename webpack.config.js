@@ -5,6 +5,19 @@ module.exports = {
     filename: "main.js",
     publicPath: "dist",
   },
+  devtool: "inline-source-map",
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+    ],
+  },
 };
 
 // const path = require("path");
