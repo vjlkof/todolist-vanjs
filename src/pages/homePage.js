@@ -1,6 +1,7 @@
 import ToDoItem from "../classes/ToDoItem";
 import Project from "../classes/Project";
 import toDoList from "../components/todoList/toDoList";
+import projectList from "../components/projectList/projectList";
 import addToDoItemButton from "../components/addToDoItemButton";
 
 export default function homePage() {
@@ -20,7 +21,7 @@ export default function homePage() {
     "note"
   );
 
-  const projectList = ["Default Project"];
+  const projects = [defaultProject];
 
   pageTitle.textContent = "Welcome to the best to do list";
   projectListTitle.textContent = "List of Projects";
@@ -36,6 +37,7 @@ export default function homePage() {
   projectSection.appendChild(toDoList(defaultProject.get().toDoItems));
 
   projectListSection.appendChild(projectListTitle);
+  projectListSection.appendChild(projectList(projects));
 
   homeElement.appendChild(projectSection);
   homeElement.appendChild(projectListSection);

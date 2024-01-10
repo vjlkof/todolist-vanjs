@@ -1,9 +1,13 @@
-p {
-  margin: 0;
-}
-.toDoItem {
+.projectItem {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: columns;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
 }
 
 .high {
