@@ -23,6 +23,8 @@ export default function homePage() {
 
   const projects = [defaultProject];
 
+  homeElement.id = "main";
+
   pageTitle.textContent = "Welcome to the best to do list";
   projectListTitle.textContent = "List of Projects";
   projectSection.appendChild(pageTitle);
