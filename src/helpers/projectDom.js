@@ -1,9 +1,9 @@
-import todoItem from "../components/todoList/todoItem/todoItem";
+import taskItem from "../components/taskList/taskItem/taskItem";
 
 export default function projectDom() {
-  const addTodoItemDom = (item) => {
-    const ulGroup = document.getElementById("todo-list");
-    ulGroup.appendChild(todoItem(item));
+  const addTaskItemDom = (item) => {
+    const ulGroup = document.getElementById("task-list");
+    ulGroup.appendChild(taskItem(item));
   };
-  return { addTodoItemDom };
+  return { addTaskItemDom };
 }

@@ -1,11 +1,11 @@
 import Project from "../classes/Project";
 import projectsDom from "./projectsDom";
 
-const dialog = document.getElementById("projectDialog");
+const dialog = document.getElementById("project-dialog");
 
 export default function projectModal(projects) {
-  const submitButton = document.getElementById("showProjectDialog");
-  const closeButton = document.getElementById("closeProjectDialog");
+  const submitButton = document.getElementById("show-project-dialog");
+  const closeButton = document.getElementById("close-project-dialog");
 
   const nameValue = document.querySelector("#input-name");
   const projectDomManagement = projectsDom();

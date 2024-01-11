@@ -4,5 +4,5 @@ import "./style.css";
 import { defaultProject, projectList } from "./data";
 
 const contentDiv = document.getElementById("content");
-document.body.insertBefore(navBar(), contentDiv);
+document.body.insertBefore(navBar(defaultProject, projectList), contentDiv);
 contentDiv.appendChild(homePage(defaultProject, projectList));

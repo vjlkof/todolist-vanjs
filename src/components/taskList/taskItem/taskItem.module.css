@@ -1,7 +1,7 @@
 p {
   margin: 0;
 }
-.todoItem {
+.taskItem {
   display: flex;
   justify-content: flex-start;
 }

@@ -54,8 +54,8 @@ li {
   margin: 10px;
 }
 
-.todoInfo,
-.projectInfo {
+.task-info,
+.project-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

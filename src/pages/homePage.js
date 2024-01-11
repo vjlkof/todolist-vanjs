@@ -1,6 +1,6 @@
-import todoList from "../components/todoList/todoList";
+import taskList from "../components/taskList/taskList";
 import projectList from "../components/projectList/projectList";
-import addTodoItemButton from "../components/addTodoItemButton";
+import addTaskItemButton from "../components/addTaskItemButton";
 import addProjectButton from "../components/addProjectButton";
 
 export default function homePage(defaultProject, projects) {
@@ -10,7 +10,7 @@ export default function homePage(defaultProject, projects) {
   const pageTitle = document.createElement("h1");
   const projectTitle = document.createElement("h2");
   const projectListTitle = document.createElement("h2");
-  const addTaskBtn = addTodoItemButton(defaultProject);
+  const addTaskBtn = addTaskItemButton(defaultProject);
   const addProjectBtn = addProjectButton(projects);
 
   homeElement.id = "main";
@@ -19,12 +19,12 @@ export default function homePage(defaultProject, projects) {
   projectListTitle.textContent = "List of Projects";
   projectSection.appendChild(pageTitle);
 
-  projectTitle.textContent = defaultProject.get().name;
+  projectTitle.textContent = defaultProject.name;
   projectSection.appendChild(projectTitle);
 
   projectSection.appendChild(addTaskBtn);
 
-  projectSection.appendChild(todoList(defaultProject.get().todoItems));
+  projectSection.appendChild(taskList(defaultProject.tasks));
 
   projectListSection.appendChild(projectListTitle);
   projectListSection.appendChild(addProjectBtn);

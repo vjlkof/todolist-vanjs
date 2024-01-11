@@ -5,7 +5,7 @@ export default function projectList(projects) {
   const projectsElement = document.createElement("div");
   projectsElement.className = styles.projectList;
   projectsElement.id = "project-list";
-  projects.get().projects.forEach((project) => {
+  projects.projects.forEach((project) => {
     const articleProject = projectItem(project);
     projectsElement.appendChild(articleProject);
   });

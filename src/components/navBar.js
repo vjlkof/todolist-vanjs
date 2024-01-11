@@ -1,9 +1,8 @@
 import homePage from "../pages/homePage";
 import projects from "../pages/projects";
 import styles from "./navBar.module.css";
-import { defaultProject, projectList } from "../data";
 
-export default function navBar() {
+export default function navBar(defaultProject, projectList) {
   const contentDiv = document.getElementById("content");
   const nav = document.createElement("nav");
   const ul = document.createElement("ul");

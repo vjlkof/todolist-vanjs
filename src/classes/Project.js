@@ -1,22 +1,18 @@
+import generateUniqueId from "../helpers/generateUniqueId";
+
 export default class Project {
+  #id = "";
   constructor(name) {
+    this.#id = generateUniqueId();
     this.name = name;
-    this.todoItems = [];
+    this.tasks = [];
   }
-  get() {
-    return { name: this.name, todoItems: this.todoItems };
+  addTask(task) {
+    this.tasks.push(task);
   }
-  set(name, todoItems) {
-    this.name = name;
-    this.todoItems = todoItems;
-  }
-  addTodoItem(todoItem) {
-    this.todoItems.push(todoItem);
-  }
-  removeTodoItem(todoItem) {
-    this.TodoItem = this.todoItems.filter(
-      (item) =>
-        !(item.name === todoItem.name && item.dueDate === todoItem.dueDate)
+  removeTask(tasks) {
+    this.tasks = this.tasks.filter(
+      (item) => !(item.name === tasks.name && item.dueDate === tasks.dueDate)
     );
   }
 }
