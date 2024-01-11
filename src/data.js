@@ -1,5 +1,6 @@
 import TodoItem from "./classes/TodoItem";
 import Project from "./classes/Project";
+import Projects from "./classes/Projects";
 
 export const defaultProject = new Project("Default Project");
 export const defaultTodoItem = new TodoItem(
@@ -11,4 +12,5 @@ export const defaultTodoItem = new TodoItem(
 );
 defaultProject.addTodoItem(defaultTodoItem);
 
-export const projectList = [defaultProject];
+export const projectList = new Projects();
+projectList.addProject(defaultProject);

@@ -16,11 +16,6 @@ export default function todoModal(project) {
 
   submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(titleValue.value);
-    console.log(descriptionValue.value);
-    console.log(dueDateValue.value);
-    console.log(priorityValue.value);
-    console.log(noteValue.value);
     const todoItem = new TodoItem(
       titleValue.value,
       descriptionValue.value,
