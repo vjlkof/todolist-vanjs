@@ -9,7 +9,7 @@ export default function homePage(defaultProject, projects) {
   const pageTitle = document.createElement("h1");
   const projectTitle = document.createElement("h2");
   const projectListTitle = document.createElement("h2");
-  const addButton = addToDoItemButton();
+  const addButton = addToDoItemButton(defaultProject);
 
   homeElement.id = "main";
 

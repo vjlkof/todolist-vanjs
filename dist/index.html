@@ -9,4 +9,46 @@
   <body>
     <div id="content"></div>
   </body>
+  <dialog id="toDoDialog">
+    <h2>Enter the data to add a new task</h2>
+    <form>
+      <div class="toDoInfo">
+        <label>Title</label>
+        <input id="input-title" type="text" placeholder="Enter a task name" />
+        <label>Description</label>
+        <input
+          id="input-description"
+          type="text"
+          placeholder="Enter a description"
+        />
+        <label>Due date</label>
+        <input
+          id="input-duedate"
+          type="datetime"
+          placeholder="Enter a due date"
+        />
+        <label>Priority</label>
+        <select id="input-priority" placeholder="Enter a priority">
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <label>Note</label>
+        <textarea
+          id="input-note"
+          placeholder="Enter a Note"
+          cols="33"
+          rows="5"
+        ></textarea>
+      </div>
+      <div class="button-container">
+        <button id="showToDoDialog" class="button-add" type="submit">
+          Add
+        </button>
+        <button id="closeToDoDialog" class="button-close" type="button">
+          Close
+        </button>
+      </div>
+    </form>
+  </dialog>
 </html>

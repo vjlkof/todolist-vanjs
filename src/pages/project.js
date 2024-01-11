@@ -6,7 +6,7 @@ export default function project(projectItem) {
   const projectSection = document.createElement("section");
   const pageTitle = document.createElement("h1");
   const projectTitle = document.createElement("h2");
-  const addButton = addToDoItemButton();
+  const addButton = addToDoItemButton(projectItem);
 
   projectElement.id = "main";
 
