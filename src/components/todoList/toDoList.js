@@ -1,8 +1,8 @@
-import toDoItem from "./toDoItem/toDoItem";
+import todoItem from "./todoItem/todoItem";
 
-export default function toDoList(toDoItems) {
-  const toDoListElement = document.createElement("ul");
-  toDoListElement.id = "todo-list";
-  toDoItems.forEach((item) => toDoListElement.appendChild(toDoItem(item)));
-  return toDoListElement;
+export default function todoList(todoItems) {
+  const todoListElement = document.createElement("ul");
+  todoListElement.id = "todo-list";
+  todoItems.forEach((item) => todoListElement.appendChild(todoItem(item)));
+  return todoListElement;
 }

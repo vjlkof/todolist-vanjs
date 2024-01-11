@@ -1,11 +1,11 @@
-import ToDoItem from "../classes/ToDoItem";
+import TodoItem from "../classes/TodoItem";
 import projectDom from "./projectDom";
 
-const dialog = document.getElementById("toDoDialog");
+const dialog = document.getElementById("todoDialog");
 
-export default function toDoModal(project) {
-  const submitButton = document.getElementById("showToDoDialog");
-  const closeButton = document.getElementById("closeToDoDialog");
+export default function todoModal(project) {
+  const submitButton = document.getElementById("showTodoDialog");
+  const closeButton = document.getElementById("closeTodoDialog");
 
   const titleValue = document.querySelector("#input-title");
   const descriptionValue = document.querySelector("#input-description");
@@ -21,15 +21,15 @@ export default function toDoModal(project) {
     console.log(dueDateValue.value);
     console.log(priorityValue.value);
     console.log(noteValue.value);
-    const toDoItem = new ToDoItem(
+    const todoItem = new TodoItem(
       titleValue.value,
       descriptionValue.value,
       dueDateValue.value,
       priorityValue.value,
       noteValue.value
     );
-    project.addToDoItem(toDoItem);
-    projectDomManagement.addTodoItemDom(toDoItem);
+    project.addTodoItem(todoItem);
+    projectDomManagement.addTodoItemDom(todoItem);
 
     console.log("paso 2");
 

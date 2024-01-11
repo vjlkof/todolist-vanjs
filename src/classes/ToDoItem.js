@@ -1,6 +1,6 @@
 import generateUniqueId from "../helpers/generateUniqueId";
 
-export default class ToDoItem {
+export default class TodoItem {
   constructor(title, description, dueDate, priority, note) {
     this.id = generateUniqueId();
     this.title = title;

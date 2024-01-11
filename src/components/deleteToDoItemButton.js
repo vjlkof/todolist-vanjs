@@ -1,4 +1,4 @@
-export default function deleteToDoItemButton() {
+export default function deleteTodoItemButton() {
   const button = document.createElement("button");
   button.textContent = "X";
 

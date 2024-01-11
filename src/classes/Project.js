@@ -1,22 +1,22 @@
 export default class Project {
   constructor(name) {
     this.name = name;
-    this.toDoItems = [];
+    this.todoItems = [];
   }
   get() {
-    return { name: this.name, toDoItems: this.toDoItems };
+    return { name: this.name, todoItems: this.todoItems };
   }
   set(name, todoItems) {
     this.name = name;
     this.todoItems = todoItems;
   }
-  addToDoItem(toDoItem) {
-    this.toDoItems.push(toDoItem);
+  addTodoItem(todoItem) {
+    this.todoItems.push(todoItem);
   }
-  removeToDoItem(toDoItem) {
-    this.ToDoItem = this.toDoItems.filter(
+  removeTodoItem(todoItem) {
+    this.TodoItem = this.todoItems.filter(
       (item) =>
-        !(item.name === toDoItem.name && item.dueDate === toDoItem.dueDate)
+        !(item.name === todoItem.name && item.dueDate === todoItem.dueDate)
     );
   }
 }

@@ -1,12 +1,12 @@
-import toDoList from "../components/todoList/toDoList";
-import addToDoItemButton from "../components/addToDoItemButton";
+import todoList from "../components/todoList/todoList";
+import addTodoItemButton from "../components/addTodoItemButton";
 
 export default function project(projectItem) {
   const projectElement = document.createElement("main");
   const projectSection = document.createElement("section");
   const pageTitle = document.createElement("h1");
   const projectTitle = document.createElement("h2");
-  const addButton = addToDoItemButton(projectItem);
+  const addButton = addTodoItemButton(projectItem);
 
   projectElement.id = "main";
 
@@ -18,7 +18,7 @@ export default function project(projectItem) {
 
   projectSection.appendChild(addButton);
 
-  projectSection.appendChild(toDoList(projectItem.get().toDoItems));
+  projectSection.appendChild(todoList(projectItem.get().todoItems));
 
   projectElement.appendChild(projectSection);
 

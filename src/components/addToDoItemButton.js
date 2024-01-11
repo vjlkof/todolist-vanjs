@@ -1,12 +1,12 @@
-import toDoModal from "../helpers/toDomodal";
+import todoModal from "../helpers/todomodal";
 
-export default function addToDoItemButton(project) {
+export default function addTodoItemButton(project) {
   const button = document.createElement("button");
-  const dialog = document.getElementById("toDoDialog");
+  const dialog = document.getElementById("todoDialog");
   button.textContent = "Add Task";
   button.addEventListener("click", () => {
     dialog.showModal();
-    toDoModal(project);
+    todoModal(project);
   });
 
   return button;

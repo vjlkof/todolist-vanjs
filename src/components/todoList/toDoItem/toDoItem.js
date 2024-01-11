@@ -1,13 +1,13 @@
-import deleteToDoItemButton from "../../deleteToDoItemButton";
-import viewToDoItemButton from "../../viewToDoItemButton";
-import editToDoItemButton from "../../editToDoItemButton";
-import styles from "./toDoItem.module.css";
+import deleteTodoItemButton from "../../deleteTodoItemButton";
+import viewTodoItemButton from "../../viewTodoItemButton";
+import editTodoItemButton from "../../editTodoItemButton";
+import styles from "./todoItem.module.css";
 
-export default function toDoItem(item) {
+export default function todoItem(item) {
   const listItemElement = document.createElement("li");
-  const deleteButton = deleteToDoItemButton();
-  const editButton = editToDoItemButton();
-  const viewButton = viewToDoItemButton();
+  const deleteButton = deleteTodoItemButton();
+  const editButton = editTodoItemButton();
+  const viewButton = viewTodoItemButton();
   const itemData = document.createElement("p");
 
   itemData.textContent = `${item.title} - ${item.dueDate}`;
@@ -20,7 +20,7 @@ export default function toDoItem(item) {
   listItemElement.appendChild(viewButton);
   listItemElement.appendChild(editButton);
   listItemElement.appendChild(deleteButton);
-  listItemElement.classList.add(styles.toDoItem);
+  listItemElement.classList.add(styles.todoItem);
 
   return listItemElement;
 }
