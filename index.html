@@ -9,10 +9,10 @@
   <body>
     <div id="content"></div>
   </body>
-  <dialog id="todoDialog">
+  <dialog id="task-dialog">
     <h2>Enter the data to add a new task</h2>
     <form>
-      <div class="todoInfo">
+      <div class="task-info">
         <label>Title</label>
         <input id="input-title" type="text" placeholder="Enter a task name" />
         <label>Description</label>
@@ -29,9 +29,9 @@
         />
         <label>Priority</label>
         <select id="input-priority" placeholder="Enter a priority">
-          <option value="high">High</option>
+          <option value="low" selected>Low</option>
           <option value="medium">Medium</option>
-          <option value="low">Low</option>
+          <option value="high">High</option>
         </select>
         <label>Note</label>
         <textarea
@@ -42,26 +42,26 @@
         ></textarea>
       </div>
       <div class="button-container">
-        <button id="showTodoDialog" class="button-add" type="submit">
+        <button id="show-task-dialog" class="button-add" type="submit">
           Add
         </button>
-        <button id="closeTodoDialog" class="button-close" type="button">
+        <button id="close-task-dialog" class="button-close" type="button">
           Close
         </button>
       </div>
     </form>
   </dialog>
-  <dialog id="projectDialog">
+  <dialog id="project-dialog">
     <h2>Enter the data to add a new project</h2>
     <form>
-      <div class="projectInfo">
+      <div class="project-info">
         <label>Name</label>
         <input id="input-name" type="text" placeholder="Enter a project name" />
       <div class="button-container">
-        <button id="showProjectDialog" class="button-add" type="submit">
+        <button id="show-project-dialog" class="button-add" type="submit">
           Add
         </button>
-        <button id="closeProjectDialog" class="button-close" type="button">
+        <button id="close-project-dialog" class="button-close" type="button">
           Close
         </button>
       </div>
