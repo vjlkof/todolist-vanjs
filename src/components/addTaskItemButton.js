@@ -6,7 +6,8 @@ export default function addTaskItemButton(project) {
   button.textContent = "Add Task";
   button.addEventListener("click", () => {
     dialog.showModal();
-    taskModal(project);
+    const taskModalManagement = taskModal();
+    taskModalManagement.addTask(project);
   });
 
   return button;

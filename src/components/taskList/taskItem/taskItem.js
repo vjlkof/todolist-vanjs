@@ -5,11 +5,12 @@ import styles from "./taskItem.module.css";
 
 export default function taskItem(item) {
   const listItemElement = document.createElement("li");
-  const deleteButton = deleteTaskItemButton();
-  const editButton = editTaskItemButton();
-  const viewButton = viewTaskItemButton();
+  const deleteButton = deleteTaskItemButton(item);
+  const editButton = editTaskItemButton(item);
+  const viewButton = viewTaskItemButton(item);
   const itemData = document.createElement("p");
 
+  listItemElement.id = item.id;
   itemData.textContent = `${item.title} - ${item.dueDate}`;
   itemData.classList.add(
     styles[item.priority],

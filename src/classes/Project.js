@@ -1,9 +1,8 @@
 import generateUniqueId from "../helpers/generateUniqueId";
 
 export default class Project {
-  #id = "";
   constructor(name) {
-    this.#id = generateUniqueId();
+    this.id = generateUniqueId();
     this.name = name;
     this.tasks = [];
   }

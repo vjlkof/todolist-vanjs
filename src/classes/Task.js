@@ -1,9 +1,8 @@
 import generateUniqueId from "../helpers/generateUniqueId";
 
 export default class Task {
-  #id = "";
   constructor(title, description, dueDate, priority, note) {
-    this.#id = generateUniqueId();
+    this.id = generateUniqueId();
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
@@ -17,7 +16,12 @@ export default class Task {
   changeCompleteStatus() {
     this.isCompleted = !this.isCompleted;
   }
-  delete() {
-    console.log("delete task from visual and data");
+  edit(title, description, dueDate, priority, note, isCompleted) {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.note = note;
+    this.isCompleted = isCompleted;
   }
 }

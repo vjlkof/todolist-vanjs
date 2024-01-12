@@ -10,7 +10,6 @@ export const defaultTask = new Task(
   "high",
   "note"
 );
-console.log(defaultProject);
 defaultProject.addTask(defaultTask);
 
 export const projectList = new Projects();
