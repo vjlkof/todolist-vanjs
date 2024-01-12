@@ -13,8 +13,9 @@ export default function taskModal() {
   const dueDateValue = document.querySelector("#input-duedate");
   const priorityValue = document.querySelector("#input-priority");
   const noteValue = document.querySelector("#input-note");
-  const projectDomManagement = projectDom();
-  const taskInfo = document.querySelector(".task-info");
+  const isCompletedValue = document.querySelector("#input-completed");
+  const formDialog = document.getElementById("form-task-dialog");
+  const dialogTitle = document.getElementById("dialog-title");
 
   buttonContainer.className = "button-container";
   submitButton.type = "submit";
@@ -24,8 +25,20 @@ export default function taskModal() {
   buttonContainer.appendChild(submitButton);
   buttonContainer.appendChild(closeButton);
   dialog.appendChild(buttonContainer);
+  formDialog.querySelectorAll("input, select, textarea").forEach((element) => {
+    element.disabled = false;
+  });
+
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+    formDialog.reset();
+    dialog.removeChild(buttonContainer);
+  });
 
   const addTask = (project) => {
+    const projectDomManagement = projectDom();
+
+    dialogTitle.textContent = "Add a new task";
     submitButton.className = "button-add";
     submitButton.textContent = "Add";
     submitButton.addEventListener("click", (event) => {
@@ -35,38 +48,23 @@ export default function taskModal() {
         descriptionValue.value,
         dueDateValue.value,
         priorityValue.value,
-        noteValue.value
+        noteValue.value,
+        isCompletedValue.checked
       );
       project.addTask(taskItem);
       projectDomManagement.addTaskItemDom(taskItem);
-      titleValue.value = "";
-      descriptionValue.value = "";
-      dueDateValue.value = "";
-      priorityValue.value = "";
-      noteValue.value = "";
       dialog.close();
-      dialog.removeChild(buttonContainer);
-    });
-    closeButton.addEventListener("click", () => {
-      dialog.close();
+      formDialog.reset();
       dialog.removeChild(buttonContainer);
     });
   };
 
   const editTask = (task) => {
     const taskDomManagement = taskDom();
-    const isCompletedLabel = document.createElement("label");
-    const isCompletedValue = document.createElement("input");
 
+    dialogTitle.textContent = "Edit the task";
     submitButton.className = "button-add";
     submitButton.textContent = "Apply";
-
-    isCompletedValue.id = "input-completed";
-    isCompletedLabel.id = "label-completed";
-    isCompletedValue.type = "checkbox";
-    isCompletedLabel.textContent = "Completed";
-    taskInfo.appendChild(isCompletedLabel);
-    taskInfo.appendChild(isCompletedValue);
 
     titleValue.value = task.title;
     descriptionValue.value = task.description;
@@ -86,24 +84,27 @@ export default function taskModal() {
         isCompletedValue.checked
       );
       taskDomManagement.editTaskDom(task);
-      titleValue.value = "";
-      descriptionValue.value = "";
-      dueDateValue.value = "";
-      priorityValue.value = "";
-      noteValue.value = "";
-      isCompletedValue.checked = false;
       dialog.close();
+      formDialog.reset();
       dialog.removeChild(buttonContainer);
-      taskInfo.removeChild(isCompletedValue);
-      taskInfo.removeChild(isCompletedLabel);
-    });
-    closeButton.addEventListener("click", () => {
-      dialog.close();
-      dialog.removeChild(buttonContainer);
-      taskInfo.removeChild(isCompletedLabel);
-      taskInfo.removeChild(isCompletedValue);
     });
   };
 
-  return { addTask, editTask };
+  const viewTask = (task) => {
+    buttonContainer.removeChild(submitButton);
+    dialogTitle.textContent = "Visualize the task";
+    formDialog
+      .querySelectorAll("input, select, textarea")
+      .forEach((element) => {
+        element.disabled = true;
+      });
+    titleValue.value = task.title;
+    descriptionValue.value = task.description;
+    dueDateValue.value = task.dueDate;
+    priorityValue.value = task.priority;
+    noteValue.value = task.note;
+    isCompletedValue.checked = task.isCompleted;
+  };
+
+  return { addTask, editTask, viewTask };
 }

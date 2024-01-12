@@ -1,14 +1,21 @@
 import generateUniqueId from "../helpers/generateUniqueId";
 
 export default class Task {
-  constructor(title, description, dueDate, priority, note) {
+  constructor(
+    title,
+    description,
+    dueDate,
+    priority,
+    note,
+    isCompleted = false
+  ) {
     this.id = generateUniqueId();
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.note = note;
-    this.isCompleted = false;
+    this.isCompleted = isCompleted;
   }
   isCompleted() {
     return this.isCompleted;
