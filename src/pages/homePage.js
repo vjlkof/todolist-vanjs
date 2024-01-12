@@ -24,7 +24,8 @@ export default function homePage(defaultProject, projects) {
 
   projectSection.appendChild(addTaskBtn);
 
-  projectSection.appendChild(taskList(defaultProject.tasks));
+  console.log(defaultProject);
+  projectSection.appendChild(taskList(defaultProject));
 
   projectListSection.appendChild(projectListTitle);
   projectListSection.appendChild(addProjectBtn);

@@ -18,7 +18,7 @@ export default function project(projectItem) {
 
   projectSection.appendChild(addButton);
 
-  projectSection.appendChild(taskList(projectItem.tasks));
+  projectSection.appendChild(taskList(projectItem));
 
   projectElement.appendChild(projectSection);
 

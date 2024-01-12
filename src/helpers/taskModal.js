@@ -52,14 +52,14 @@ export default function taskModal() {
         isCompletedValue.checked
       );
       project.addTask(taskItem);
-      projectDomManagement.addTaskItemDom(taskItem);
+      projectDomManagement.addTaskDom(taskItem, project);
       dialog.close();
       formDialog.reset();
       dialog.removeChild(buttonContainer);
     });
   };
 
-  const editTask = (task) => {
+  const editTask = (task, project) => {
     const taskDomManagement = taskDom();
 
     dialogTitle.textContent = "Edit the task";
@@ -83,7 +83,7 @@ export default function taskModal() {
         noteValue.value,
         isCompletedValue.checked
       );
-      taskDomManagement.editTaskDom(task);
+      taskDomManagement.editTaskDom(task, project);
       dialog.close();
       formDialog.reset();
       dialog.removeChild(buttonContainer);
@@ -106,5 +106,13 @@ export default function taskModal() {
     isCompletedValue.checked = task.isCompleted;
   };
 
-  return { addTask, editTask, viewTask };
+  const deleteTask = (task, project) => {
+    const projectDomManagement = projectDom();
+    project.deleteTask(task);
+    projectDomManagement.deleteTaskDom(task);
+    dialog.close();
+    dialog.removeChild(buttonContainer);
+  };
+
+  return { addTask, editTask, viewTask, deleteTask };
 }

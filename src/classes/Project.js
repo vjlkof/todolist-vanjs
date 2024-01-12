@@ -9,9 +9,7 @@ export default class Project {
   addTask(task) {
     this.tasks.push(task);
   }
-  removeTask(tasks) {
-    this.tasks = this.tasks.filter(
-      (item) => !(item.name === tasks.name && item.dueDate === tasks.dueDate)
-    );
+  deleteTask(task) {
+    this.tasks = this.tasks.filter((item) => !(item.id === task.id));
   }
 }

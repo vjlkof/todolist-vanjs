@@ -3,10 +3,11 @@ import viewTaskItemButton from "../../viewTaskItemButton";
 import editTaskItemButton from "../../editTaskItemButton";
 import styles from "./taskItem.module.css";
 
-export default function taskItem(item) {
+export default function taskItem(item, project) {
   const listItemElement = document.createElement("li");
-  const deleteButton = deleteTaskItemButton(item);
-  const editButton = editTaskItemButton(item);
+  console.log(project);
+  const deleteButton = deleteTaskItemButton(item, project);
+  const editButton = editTaskItemButton(item, project);
   const viewButton = viewTaskItemButton(item);
   const itemData = document.createElement("p");
 
