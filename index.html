@@ -10,8 +10,8 @@
     <div id="content"></div>
   </body>
   <dialog id="task-dialog">
-    <h2>Enter the data to add a new task</h2>
-    <form>
+    <h2 id="dialog-title">Title</h2>
+    <form id="form-task-dialog">
       <div class="task-info">
         <label>Title</label>
         <input id="input-title" type="text" placeholder="Enter a task name" />
@@ -40,6 +40,8 @@
           cols="33"
           rows="5"
         ></textarea>
+        <label>Completed</label>
+        <input id="input-completed" type="checkbox" />
       </div>
       <!-- <div class="button-container">
         <button id="show-task-dialog" class="button-add" type="submit">
