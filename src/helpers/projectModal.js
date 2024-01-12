@@ -3,28 +3,40 @@ import projectsDom from "./projectsDom";
 
 const dialog = document.getElementById("project-dialog");
 
-export default function projectModal(projects) {
-  const submitButton = document.getElementById("show-project-dialog");
-  const closeButton = document.getElementById("close-project-dialog");
-
+export default function projectModal() {
+  const buttonContainer = document.createElement("div");
+  const submitButton = document.createElement("button");
+  const closeButton = document.createElement("button");
   const nameValue = document.querySelector("#input-name");
   const projectDomManagement = projectsDom();
 
-  submitButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    console.log(nameValue.value);
-
-    const newProject = new Project(nameValue.value);
-    projects.addProject(newProject);
-    projectDomManagement.addProjectDom(newProject);
-
-    console.log("paso 2");
-
-    nameValue.value = "";
-    dialog.close();
-  });
+  buttonContainer.className = "button-container";
+  submitButton.type = "submit";
+  closeButton.className = "button-close";
+  closeButton.type = "button";
+  closeButton.textContent = "Close";
+  buttonContainer.appendChild(submitButton);
+  buttonContainer.appendChild(closeButton);
+  dialog.appendChild(buttonContainer);
 
   closeButton.addEventListener("click", () => {
     dialog.close();
+    dialog.removeChild(buttonContainer);
   });
+
+  const addProject = (projects) => {
+    submitButton.className = "button-add";
+    submitButton.textContent = "Add";
+    submitButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const newProject = new Project(nameValue.value);
+
+      projects.addProject(newProject);
+      projectDomManagement.addProjectDom(newProject);
+      nameValue.value = "";
+      dialog.close();
+      dialog.removeChild(buttonContainer);
+    });
+  };
+  return { addProject };
 }
