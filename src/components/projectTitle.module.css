@@ -1,0 +1,9 @@
+.projectContainer {
+  display: flex;
+  gap: 50px;
+}
+
+button {
+  height: 20px;
+  align-self: center;
+}

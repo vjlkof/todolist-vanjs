@@ -6,7 +6,6 @@ import styles from "./taskItem.module.css";
 
 export default function taskItem(item, project) {
   const listItemElement = document.createElement("li");
-  console.log(project);
   const deleteButton = deleteTaskItemButton(item, project);
   const editButton = editTaskItemButton(item, project);
   const viewButton = viewTaskItemButton(item);
@@ -14,7 +13,6 @@ export default function taskItem(item, project) {
 
   itemData.addEventListener("click", () => {
     item.changeCompleteStatus();
-    console.log(item.isCompleted);
     styleCompleteStatusDom(item, itemData, styles);
   });
 

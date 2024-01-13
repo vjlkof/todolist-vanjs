@@ -12,4 +12,7 @@ export default class Project {
   deleteTask(task) {
     this.tasks = this.tasks.filter((item) => !(item.id === task.id));
   }
+  changeName(name) {
+    this.name = name;
+  }
 }

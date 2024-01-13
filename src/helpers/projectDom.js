@@ -9,5 +9,11 @@ export default function projectDom() {
     const ulGroup = document.getElementById("task-list");
     ulGroup.removeChild(document.getElementById(item.id));
   };
-  return { addTaskDom, deleteTaskDom };
+
+  const changeNameDom = (project) => {
+    const projectTitle = document.getElementById(project.id);
+    projectTitle.textContent = project.name;
+  };
+
+  return { addTaskDom, deleteTaskDom, changeNameDom };
 }

@@ -10,6 +10,7 @@ export default function projectItem(item) {
   itemData.className = "projectItem";
   articleElement.appendChild(itemData);
   articleElement.className = styles.projectItem;
+  articleElement.id = item.id;
   articleElement.addEventListener("click", () => {
     const contentDiv = document.getElementById("content");
     contentDiv.removeChild(document.getElementById("main"));
