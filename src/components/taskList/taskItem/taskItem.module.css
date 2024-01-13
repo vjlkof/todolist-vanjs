@@ -1,6 +1,12 @@
 p {
   margin: 0;
 }
+
+p:hover {
+  cursor: pointer;
+  background-color: rgb(218, 221, 215);
+}
+
 .taskItem {
   display: flex;
   justify-content: flex-start;
@@ -19,5 +25,6 @@ p {
 }
 
 .completed {
+  text-decoration: line-through;
   background-color: rgb(157, 231, 45);
 }
