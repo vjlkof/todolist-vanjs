@@ -1,4 +1,4 @@
-import taskModal from "../helpers/taskModal";
+import taskModal from "../../helpers/taskModal";
 
 export default function deleteTaskItemButton(task, project) {
   const button = document.createElement("button");

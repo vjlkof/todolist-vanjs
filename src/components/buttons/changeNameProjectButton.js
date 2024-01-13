@@ -1,4 +1,4 @@
-import projectModal from "../helpers/projectModal";
+import projectModal from "../../helpers/projectModal";
 
 export default function changeNameProjectButton(project) {
   const button = document.createElement("button");

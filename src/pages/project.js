@@ -1,6 +1,6 @@
-import projectTitle from "../components/projectTitle";
+import projectTitle from "../components/projectTitle/projectTitle";
 import taskList from "../components/taskList/taskList";
-import addTaskItemButton from "../components/addTaskItemButton";
+import addTaskItemButton from "../components/buttons/addTaskItemButton";
 
 export default function project(projectItem, projectList) {
   const projectElement = document.createElement("main");

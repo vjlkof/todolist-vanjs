@@ -1,5 +1,5 @@
 import homePage from "./pages/homePage";
-import navBar from "./components/navBar";
+import navBar from "./components/navBar/navBar";
 import "./style.css";
 import { defaultProject, projectList } from "./data";
 

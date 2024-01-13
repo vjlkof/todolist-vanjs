@@ -1,6 +1,6 @@
-import deleteTaskItemButton from "../../deleteTaskItemButton";
-import viewTaskItemButton from "../../viewTaskItemButton";
-import editTaskItemButton from "../../editTaskItemButton";
+import deleteTaskItemButton from "../../buttons/deleteTaskItemButton";
+import viewTaskItemButton from "../../buttons/viewTaskItemButton";
+import editTaskItemButton from "../../buttons/editTaskItemButton";
 import styleCompleteStatusDom from "../../../helpers/styleCompleteStatusDom";
 import styles from "./taskItem.module.css";
 

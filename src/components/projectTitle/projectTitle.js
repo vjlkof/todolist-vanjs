@@ -1,6 +1,6 @@
 import styles from "./projectTitle.module.css";
-import changeNameProjectButton from "./changeNameProjectButton";
-import deleteProjectButton from "./deleteProjectButton";
+import changeNameProjectButton from "../buttons/changeNameProjectButton";
+import deleteProjectButton from "../buttons/deleteProjectButton";
 
 export default function projectTitle(project, projecList) {
   const titleContainer = document.createElement("div");

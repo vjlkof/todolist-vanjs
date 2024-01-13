@@ -1,5 +1,5 @@
-import homePage from "../pages/homePage";
-import projects from "../pages/projects";
+import homePage from "../../pages/homePage";
+import projects from "../../pages/projects";
 import styles from "./navBar.module.css";
 
 export default function navBar(defaultProject, projectList) {

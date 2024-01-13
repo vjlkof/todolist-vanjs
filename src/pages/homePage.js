@@ -1,8 +1,8 @@
-import projectTitle from "../components/projectTitle";
+import projectTitle from "../components/projectTitle/projectTitle";
 import taskList from "../components/taskList/taskList";
 import projectList from "../components/projectList/projectList";
-import addTaskItemButton from "../components/addTaskItemButton";
-import addProjectButton from "../components/addProjectButton";
+import addTaskItemButton from "../components/buttons/addTaskItemButton";
+import addProjectButton from "../components/buttons/addProjectButton";
 
 export default function homePage(defaultProject, projects) {
   const homeElement = document.createElement("main");
