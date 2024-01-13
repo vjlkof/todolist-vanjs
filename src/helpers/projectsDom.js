@@ -1,3 +1,4 @@
+import homePage from "../pages/homePage";
 import projectItem from "../components/projectList/projectItem/projectItem";
 
 export default function projectsDom() {
@@ -14,5 +15,11 @@ export default function projectsDom() {
     }
   };
 
-  return { addProjectDom, changeProjectDom };
+  const deleteProjectDom = (projects) => {
+    const contentDiv = document.getElementById("content");
+    contentDiv.removeChild(document.getElementById("main"));
+    contentDiv.appendChild(homePage(projects.projects[0], projects));
+  };
+
+  return { addProjectDom, changeProjectDom, deleteProjectDom };
 }

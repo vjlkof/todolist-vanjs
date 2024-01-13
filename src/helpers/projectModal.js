@@ -56,5 +56,15 @@ export default function projectModal() {
     });
   };
 
-  return { addProject, projectChangeName };
+  const deleteProject = (project, projectList) => {
+    dialog.removeChild(buttonContainer);
+    if (projectList.projects.length > 1) {
+      projectList.removeProject(project);
+      projectsDomManagement.deleteProjectDom(projectList);
+      return;
+    }
+    alert("The delete cannot be processed because you have only 1 project");
+  };
+
+  return { addProject, projectChangeName, deleteProject };
 }

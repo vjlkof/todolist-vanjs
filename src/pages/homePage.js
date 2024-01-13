@@ -16,7 +16,7 @@ export default function homePage(defaultProject, projects) {
   homeElement.id = "main";
   pageTitle.textContent = "Welcome to the best to do list";
   projectSection.appendChild(pageTitle);
-  projectSection.appendChild(projectTitle(defaultProject));
+  projectSection.appendChild(projectTitle(defaultProject, projects));
   projectSection.appendChild(addTaskBtn);
   projectSection.appendChild(taskList(defaultProject));
 
