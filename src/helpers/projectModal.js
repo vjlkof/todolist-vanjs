@@ -1,5 +1,5 @@
 import Project from "../classes/Project";
-import projectsDom from "./projectsDom";
+import projectListDom from "./projectListDom";
 import projectDom from "./projectDom";
 import { saveData } from "../helpers/localStorageData";
 
@@ -10,7 +10,7 @@ export default function projectModal() {
   const submitButton = document.createElement("button");
   const closeButton = document.createElement("button");
   const nameValue = document.querySelector("#input-name");
-  const projectsDomManagement = projectsDom();
+  const projectListDomManagement = projectListDom();
 
   buttonContainer.className = "button-container";
   submitButton.type = "submit";
@@ -34,7 +34,7 @@ export default function projectModal() {
       const newProject = new Project(nameValue.value);
 
       projectList.addProject(newProject);
-      projectsDomManagement.addProjectDom(newProject);
+      projectListDomManagement.addProjectDom(newProject);
       saveData(projectList);
       nameValue.value = "";
       dialog.close();
@@ -51,7 +51,7 @@ export default function projectModal() {
       event.preventDefault();
       project.changeName(nameValue.value);
       projectDomManagement.changeNameDom(project);
-      projectsDomManagement.changeProjectDom(project);
+      projectListDomManagement.changeProjectDom(project);
       saveData(projectList);
       nameValue.value = "";
       dialog.close();
@@ -63,7 +63,7 @@ export default function projectModal() {
     dialog.removeChild(buttonContainer);
     if (projectList.projects.length > 1) {
       projectList.removeProject(project);
-      projectsDomManagement.deleteProjectDom(projectList);
+      projectListDomManagement.deleteProjectDom(projectList);
       saveData(projectList);
       return;
     }
