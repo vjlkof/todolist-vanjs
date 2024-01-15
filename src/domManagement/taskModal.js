@@ -18,6 +18,20 @@ export default function taskModal() {
   const formDialog = document.getElementById("form-task-dialog");
   const dialogTitle = document.getElementById("dialog-title");
 
+  function keyEscapeClose(event) {
+    if (event.key === "Escape") {
+      closeDialog();
+    }
+  }
+
+  function closeDialog() {
+    console.log("entro");
+    dialog.close();
+    formDialog.reset();
+    dialog.removeChild(buttonContainer);
+    document.removeEventListener("keydown", keyEscapeClose);
+  }
+
   buttonContainer.className = "button-container";
   submitButton.type = "submit";
   closeButton.className = "button-close";
@@ -30,11 +44,11 @@ export default function taskModal() {
     element.disabled = false;
   });
 
-  closeButton.addEventListener("click", () => {
-    dialog.close();
-    formDialog.reset();
-    dialog.removeChild(buttonContainer);
-  });
+  closeButton.addEventListener("click", closeDialog);
+
+  document.addEventListener("keydown", keyEscapeClose);
+
+  dialog.addEventListener("show", () => dialog.focus());
 
   const addTask = (project, projectList) => {
     const projectDomManagement = projectDom();
@@ -55,9 +69,7 @@ export default function taskModal() {
       project.addTask(taskItem);
       projectDomManagement.addTaskDom(taskItem, project);
       saveData(projectList);
-      dialog.close();
-      formDialog.reset();
-      dialog.removeChild(buttonContainer);
+      closeDialog();
     });
   };
 
@@ -87,9 +99,7 @@ export default function taskModal() {
       );
       taskDomManagement.editTaskDom(task, project);
       saveData(projectList);
-      dialog.close();
-      formDialog.reset();
-      dialog.removeChild(buttonContainer);
+      closeDialog();
     });
   };
 
@@ -115,6 +125,7 @@ export default function taskModal() {
     projectDomManagement.deleteTaskDom(task);
     saveData(projectList);
     dialog.removeChild(buttonContainer);
+    document.removeEventListener("keydown", keyEscapeClose);
   };
 
   return { addTask, editTask, viewTask, deleteTask };

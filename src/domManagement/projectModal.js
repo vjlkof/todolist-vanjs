@@ -12,6 +12,19 @@ export default function projectModal() {
   const nameValue = document.querySelector("#input-name");
   const projectListDomManagement = projectListDom();
 
+  function keyEscapeClose(event) {
+    if (event.key === "Escape") {
+      console.log("entro");
+      closeDialog();
+    }
+  }
+
+  function closeDialog() {
+    dialog.close();
+    dialog.removeChild(buttonContainer);
+    document.removeEventListener("keydown", keyEscapeClose);
+  }
+
   buttonContainer.className = "button-container";
   submitButton.type = "submit";
   closeButton.className = "button-close";
@@ -21,10 +34,9 @@ export default function projectModal() {
   buttonContainer.appendChild(closeButton);
   dialog.appendChild(buttonContainer);
 
-  closeButton.addEventListener("click", () => {
-    dialog.close();
-    dialog.removeChild(buttonContainer);
-  });
+  closeButton.addEventListener("click", closeDialog);
+
+  document.addEventListener("keydown", keyEscapeClose);
 
   const addProject = (projectList) => {
     submitButton.className = "button-add";
@@ -32,13 +44,11 @@ export default function projectModal() {
     submitButton.addEventListener("click", (event) => {
       event.preventDefault();
       const newProject = new Project(nameValue.value);
-
       projectList.addProject(newProject);
       projectListDomManagement.addProjectDom(newProject);
       saveData(projectList);
       nameValue.value = "";
-      dialog.close();
-      dialog.removeChild(buttonContainer);
+      closeDialog();
     });
   };
 
@@ -54,13 +64,13 @@ export default function projectModal() {
       projectListDomManagement.changeProjectDom(project);
       saveData(projectList);
       nameValue.value = "";
-      dialog.close();
-      dialog.removeChild(buttonContainer);
+      closeDialog();
     });
   };
 
   const deleteProject = (project, projectList) => {
     dialog.removeChild(buttonContainer);
+    document.removeEventListener("keydown", keyEscapeClose);
     if (projectList.projects.length > 1) {
       projectList.removeProject(project);
       projectListDomManagement.deleteProjectDom(projectList);

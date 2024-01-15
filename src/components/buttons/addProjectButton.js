@@ -1,4 +1,4 @@
-import projectModal from "../../helpers/projectModal";
+import projectModal from "../../domManagement/projectModal";
 
 export default function addProjectButton(projects) {
   const button = document.createElement("button");

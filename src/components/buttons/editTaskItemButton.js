@@ -1,4 +1,4 @@
-import taskModal from "../../helpers/taskModal";
+import taskModal from "../../domManagement/taskModal";
 
 export default function editTaskItemButton(task, project, projects) {
   const button = document.createElement("button");
