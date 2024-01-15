@@ -4,21 +4,21 @@ import projectList from "../components/projectList/projectList";
 import addTaskItemButton from "../components/buttons/addTaskItemButton";
 import addProjectButton from "../components/buttons/addProjectButton";
 
-export default function homePage(defaultProject, projects) {
+export default function homePage(project, projects) {
   const homeElement = document.createElement("main");
   const projectSection = document.createElement("section");
   const projectListSection = document.createElement("section");
   const pageTitle = document.createElement("h1");
   const projectListTitle = document.createElement("h2");
-  const addTaskBtn = addTaskItemButton(defaultProject);
+  const addTaskBtn = addTaskItemButton(project, projects);
   const addProjectBtn = addProjectButton(projects);
 
   homeElement.id = "main";
   pageTitle.textContent = "Welcome to the best to do list";
   projectSection.appendChild(pageTitle);
-  projectSection.appendChild(projectTitle(defaultProject, projects));
+  projectSection.appendChild(projectTitle(project, projects));
   projectSection.appendChild(addTaskBtn);
-  projectSection.appendChild(taskList(defaultProject));
+  projectSection.appendChild(taskList(project, projects));
 
   projectListTitle.textContent = "List of Projects";
   projectListSection.appendChild(projectListTitle);

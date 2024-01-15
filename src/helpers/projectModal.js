@@ -1,6 +1,7 @@
 import Project from "../classes/Project";
 import projectsDom from "./projectsDom";
 import projectDom from "./projectDom";
+import { saveData } from "../helpers/localStorageData";
 
 const dialog = document.getElementById("project-dialog");
 
@@ -25,22 +26,23 @@ export default function projectModal() {
     dialog.removeChild(buttonContainer);
   });
 
-  const addProject = (projects) => {
+  const addProject = (projectList) => {
     submitButton.className = "button-add";
     submitButton.textContent = "Add";
     submitButton.addEventListener("click", (event) => {
       event.preventDefault();
       const newProject = new Project(nameValue.value);
 
-      projects.addProject(newProject);
+      projectList.addProject(newProject);
       projectsDomManagement.addProjectDom(newProject);
+      saveData(projectList);
       nameValue.value = "";
       dialog.close();
       dialog.removeChild(buttonContainer);
     });
   };
 
-  const projectChangeName = (project) => {
+  const projectChangeName = (project, projectList) => {
     const projectDomManagement = projectDom();
     submitButton.className = "button-add";
     submitButton.textContent = "Apply";
@@ -50,6 +52,7 @@ export default function projectModal() {
       project.changeName(nameValue.value);
       projectDomManagement.changeNameDom(project);
       projectsDomManagement.changeProjectDom(project);
+      saveData(projectList);
       nameValue.value = "";
       dialog.close();
       dialog.removeChild(buttonContainer);
@@ -61,6 +64,7 @@ export default function projectModal() {
     if (projectList.projects.length > 1) {
       projectList.removeProject(project);
       projectsDomManagement.deleteProjectDom(projectList);
+      saveData(projectList);
       return;
     }
     alert("The delete cannot be processed because you have only 1 project");

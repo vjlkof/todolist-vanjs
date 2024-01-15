@@ -1,13 +1,13 @@
 import taskModal from "../../helpers/taskModal";
 
-export default function editTaskItemButton(task, project) {
+export default function editTaskItemButton(task, project, projects) {
   const button = document.createElement("button");
   const dialog = document.getElementById("task-dialog");
   button.textContent = "Edit";
   button.addEventListener("click", () => {
     dialog.showModal();
     const taskModalManagement = taskModal();
-    taskModalManagement.editTask(task, project);
+    taskModalManagement.editTask(task, project, projects);
   });
 
   return button;

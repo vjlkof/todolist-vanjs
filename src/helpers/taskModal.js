@@ -1,6 +1,7 @@
 import Task from "../classes/Task";
 import projectDom from "./projectDom";
 import taskDom from "./taskDom";
+import { saveData } from "../helpers/localStorageData";
 
 const dialog = document.getElementById("task-dialog");
 
@@ -35,7 +36,7 @@ export default function taskModal() {
     dialog.removeChild(buttonContainer);
   });
 
-  const addTask = (project) => {
+  const addTask = (project, projectList) => {
     const projectDomManagement = projectDom();
 
     dialogTitle.textContent = "Add a new task";
@@ -53,13 +54,14 @@ export default function taskModal() {
       );
       project.addTask(taskItem);
       projectDomManagement.addTaskDom(taskItem, project);
+      saveData(projectList);
       dialog.close();
       formDialog.reset();
       dialog.removeChild(buttonContainer);
     });
   };
 
-  const editTask = (task, project) => {
+  const editTask = (task, project, projectList) => {
     const taskDomManagement = taskDom();
 
     dialogTitle.textContent = "Edit the task";
@@ -84,6 +86,7 @@ export default function taskModal() {
         isCompletedValue.checked
       );
       taskDomManagement.editTaskDom(task, project);
+      saveData(projectList);
       dialog.close();
       formDialog.reset();
       dialog.removeChild(buttonContainer);
@@ -106,11 +109,11 @@ export default function taskModal() {
     isCompletedValue.checked = task.isCompleted;
   };
 
-  const deleteTask = (task, project) => {
+  const deleteTask = (task, project, projectList) => {
     const projectDomManagement = projectDom();
     project.deleteTask(task);
     projectDomManagement.deleteTaskDom(task);
-    dialog.close();
+    saveData(projectList);
     dialog.removeChild(buttonContainer);
   };
 

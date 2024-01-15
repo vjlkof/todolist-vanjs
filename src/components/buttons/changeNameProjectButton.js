@@ -1,6 +1,6 @@
 import projectModal from "../../helpers/projectModal";
 
-export default function changeNameProjectButton(project) {
+export default function changeNameProjectButton(project, projectList) {
   const button = document.createElement("button");
   const dialog = document.getElementById("project-dialog");
   button.textContent = "Change name";
@@ -8,7 +8,7 @@ export default function changeNameProjectButton(project) {
   button.addEventListener("click", () => {
     const projectManagement = projectModal();
     dialog.showModal();
-    projectManagement.projectChangeName(project);
+    projectManagement.projectChangeName(project, projectList);
   });
 
   return button;

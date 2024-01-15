@@ -3,16 +3,18 @@ import viewTaskItemButton from "../../buttons/viewTaskItemButton";
 import editTaskItemButton from "../../buttons/editTaskItemButton";
 import styleCompleteStatusDom from "../../../helpers/styleCompleteStatusDom";
 import styles from "./taskItem.module.css";
+import { saveData } from "../../../helpers/localStorageData";
 
-export default function taskItem(item, project) {
+export default function taskItem(item, project, projects) {
   const listItemElement = document.createElement("li");
-  const deleteButton = deleteTaskItemButton(item, project);
-  const editButton = editTaskItemButton(item, project);
+  const deleteButton = deleteTaskItemButton(item, project, projects);
+  const editButton = editTaskItemButton(item, project, projects);
   const viewButton = viewTaskItemButton(item);
   const itemData = document.createElement("p");
 
   itemData.addEventListener("click", () => {
     item.changeCompleteStatus();
+    saveData(projects);
     styleCompleteStatusDom(item, itemData, styles);
   });
 

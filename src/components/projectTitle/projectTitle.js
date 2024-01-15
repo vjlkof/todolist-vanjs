@@ -8,7 +8,7 @@ export default function projectTitle(project, projecList) {
   projectTitle.id = project.id;
   titleContainer.className = styles.projectContainer;
   titleContainer.appendChild(projectTitle);
-  titleContainer.appendChild(changeNameProjectButton(project));
+  titleContainer.appendChild(changeNameProjectButton(project, projecList));
   titleContainer.appendChild(deleteProjectButton(project, projecList));
   projectTitle.textContent = project.name;
 
